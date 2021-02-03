@@ -1,0 +1,90 @@
+
+{% extends "temp.html" %}
+{% block body %}
+    
+    
+    
+    <div class="container">
+    <form action="" method="POST">
+    {% with messages=get_flashed_messages() %}
+                {% if messages %}
+                <br>
+                <div class="alert alert-success" role="alert">
+                    {{messages[0]}}
+                </div>
+                {% endif %}
+                {% endwith %}
+	<br>
+     <div class="form">
+                <div class="note">
+                <p> Send Your Message</p>
+                
+                </div>
+                
+                
+                
+  <div class="form-content">
+  Name:
+  <div class="input-group">
+	
+	<br>
+		<div class="input-group-prepend3">
+ 
+		 </div>
+        <input type="text" name="nam" required/>
+	</div>
+<br>
+
+Mobile No:
+
+    <div class="input-group">
+		<div class="input-group-prepend2">
+		    
+		 </div>
+        <input type="text" name="no" pattern="[6-9]{1}[0-9]{9}" oninvalid="setCustomValidity('Enter a Valid Mobile Number')" oninput="setCustomValidity('')" required/>
+	</div>
+	
+<br>	
+	
+	Message:
+
+    <div class="input-group">
+		<div class="input-group-prepend4">
+		    
+		 </div>
+        <textarea rows="20" cols="30" type="text" name="sms" required></textarea>
+	</div>
+	<br>
+	
+	
+	
+	<div class="form-group text-center">
+        <p>
+        <input type="submit" class="btn btn-outline-success" name="sen" value="Send"/>
+        </p>  
+         <p>
+        <input type="submit" class="btn btn-outline-dark" name="lg" value="LogOut" formnovalidate/>
+        </p> 
+        
+
+                            </div>
+                        </div>
+                            
+                        </div>
+                    </div>
+</form>                  
+                </div>
+	
+	
+                
+                
+                
+                
+       
+      
+      
+      
+      
+      
+        
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "temp.html" %}
+{% block body %}
+   
+
+   <div class="container">
+<form action="" method="POST">
+            <div class="form">
+                <div class="note">
+                
+                    <p>Login</p>
+                </div>
+  <div class="form-content">
+  Email:
+	<div class="input-group">
+	
+	<br>
+		<div class="input-group-prepend7">
+ 
+		 </div>
+		<input name="unam" class="form-control" placeholder="Email">
+	</div>
+<br>
+
+Password:
+
+    <div class="input-group">
+		<div class="input-group-prepend8">
+		    
+		 </div>
+	    <input class="form-control" name="pas" placeholder="Password" type="password">
+	</div>
+	
+	{% with messages=get_flashed_messages() %}
+                {% if messages %}
+                <br>
+                <div class="alert alert-danger" role="alert">
+                    *{{messages[0]}}
+                </div>
+                {% endif %}
+                {% endwith %}
+                            
+                            <div class="form-group text-center">
+                                <input type="submit" value="Login" name="se" class="btnSubmit"/>
+                            </div>
+                        </div>
+                            
+                        </div>
+                    </div>
+</form>                  
+                </div>
+{% endblock %}

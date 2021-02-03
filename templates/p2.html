@@ -1,0 +1,65 @@
+{% extends "temp.html" %}
+{% block body %}
+
+<div class="note">
+                
+                    <p>This is a SMS sending WEBAPP...</p>
+     
+                </div>
+<p>
+<center>
+{% with messages=get_flashed_messages() %}
+                {% if messages %}
+                <br>
+                <div class="alert alert-success" role="alert">
+                    {{messages[0]}}
+                </div>
+                {% endif %}
+                {% endwith %}
+        </center>
+
+       <br>
+        <table class="table table-hover">
+        <thead>
+        <tr>
+        {% for i in h %}
+        <th scope="col">
+        {{i}}
+        </th>       
+        {% endfor %}       
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in l1 %}
+        <tr>       
+        {% for j in i %}
+        <td>
+        {{j}}
+        </td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+         </tbody>
+        </table>
+        <br>
+       
+       <center>
+        <form action="" method="POST">
+
+        <h4>
+         User to be deleted:
+        </h4>
+        <p>
+        <input type="text" name="unam" required/>
+        </p>
+        <p>
+        <input type="submit" class="btn btn-outline-danger" name="dl" value="Delete"/>
+        <input type="submit" class="btn btn-outline-dark" name="bkk" value="Back" formnovalidate/>
+        <br>
+        <br>
+        <input type="submit" name="lg" class="btn btn-outline-dark" value="Logout" formnovalidate/> 
+        </p>  
+</form>
+</p>
+</center>
+{% endblock %}

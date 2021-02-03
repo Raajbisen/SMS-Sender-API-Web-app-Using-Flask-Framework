@@ -1,0 +1,74 @@
+{% extends "temp.html" %}
+{% block body %}
+
+<div class="note">
+                
+                    <p>This is a SMS sending WEBAPP...</p>
+     
+ </div>
+<p>
+
+<center>
+{% with messages=get_flashed_messages() %}
+                {% if messages %}
+                <br>
+                <div class="alert alert-success" role="alert">
+                    {{messages[0]}}
+                </div>
+                {% endif %}
+                {% endwith %}
+        </center>
+
+        
+        
+        
+        
+        
+        <br>
+        <table class="table table-hover">
+        <thead>
+        <tr>
+        {% for i in h %}
+        <th scope="col">
+        {{i}}
+        </th>       
+        {% endfor %}       
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in l1 %}
+        <tr>       
+        {% for j in i %}
+        <td>
+        {% if j==1 %}
+        {{'Sent'}}
+        {% elif j==0 %}
+        {{'Fail'}}
+        {% else %}
+        {{j}}
+        {% endif %}
+        </td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+         </tbody>
+        </table>
+        <br>
+        
+        <center>
+        <form action="" method="POST">
+        <p>
+        <input type="submit" class="btn btn-outline-danger" name="dl" value="Delete All"/>
+        <input type="submit" class="btn btn-outline-danger" name="df" value="Delete All Fails"/>
+        <input type="submit" class="btn btn-outline-danger" name="dt" value="Delete All Sent"/>
+        <br>
+        <br>
+        <input type="submit" class="btn btn-outline-dark" name="bkk" value="Back"/>
+        <br>
+        <br>
+        <input type="submit"  class="btn btn-outline-dark" name="lg" value="Logout"/> 
+        </p>  
+</form>
+</p>
+    </center>
+{% endblock %}
