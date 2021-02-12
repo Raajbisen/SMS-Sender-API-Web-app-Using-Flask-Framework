@@ -1,10 +1,6 @@
 {% extends "temp.html" %}
 {% block body %}
-    {% with messages=get_flashed_messages() %}
-    {% if messages %}
-    {{messages[0]}}
-    {% endif %}
-    {% endwith %}
+   
    <div class="container">
     <form action="" method="post">
          <div class="form">
@@ -37,7 +33,14 @@ Password:
 	    <input class="form-control" type="password" name="pass" placeholder="Password" required/>
 	</div>
 	
-	
+	 {% with messages=get_flashed_messages() %}
+    {% if messages %}
+    <br>
+ <div class="alert alert-danger" role="alert">
+                    {{messages[0]}}
+                </div>   
+         {% endif %}
+    {% endwith %}
 	
 	
 	 <div class="form-group text-center">
