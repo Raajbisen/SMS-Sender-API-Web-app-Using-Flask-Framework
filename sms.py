@@ -200,7 +200,7 @@ def adimlog():
         if request.form.get("li"):
             usn = request.form['un']
             pas = request.form['pass']
-            mno = '9479557075'
+            mno = '7566941937'
             oot=k
             session['otp1']=oot
             msg=f'OTP is {oot}'
@@ -217,7 +217,7 @@ def adimlog():
             cur=mysql.connection.cursor()
             cur.execute("insert into SMS_API values ('admin',%s,%s,%s)",(mno,msg,p))
             mysql.connection.commit()
-            if usn=='himreal9' and pas=='12345' and p==True:
+            if usn=='admin' and pas=='12345' and p==True:
                 return redirect('/otp1')
             else:
                 flash("Wrong Credentials","info")
