@@ -3,12 +3,13 @@ import requests, random
 from flask_mysqldb import MySQL
 app=Flask(__name__)
 app.secret_key='man'
-app.config['MYSQL_USER'] = 'sql12384556'
-app.config['MYSQL_PASSWORD'] = 'QNJIsufXGi'
-app.config['MYSQL_DB'] = 'sql12384556'
-app.config['MYSQL_HOST'] = 'sql12.freemysqlhosting.net'
+app.config['MYSQL_USER'] = 'sql6400422'
+app.config['MYSQL_PASSWORD'] = 'DKtBW5XPaD'
+app.config['MYSQL_DB'] = 'sql6400422'
+app.config['MYSQL_HOST'] = 'sql6.freemysqlhosting.net'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 mysql=MySQL(app)
+
 l={'0','1','2','3','4','5','6','7','8','9'}
 k='' 
 for i in random.sample(l, 4):
@@ -53,7 +54,7 @@ def sup():
                 return redirect('/signup')                
             else:
                 cur=mysql.connection.cursor()
-                cur.execute("select * from user where unam like %s",(us,))
+                cur.execute("select * from user where us like %s",(us,))
                 mysql.connection.commit()
                 r=cur.fetchall()
                 if len(r)==0 :
@@ -89,7 +90,7 @@ def sup():
                 return redirect('/signup')                
             else:
                 cur=mysql.connection.cursor()
-                cur.execute("select * from user where unam like %s",(us,))
+                cur.execute("select * from user where us like %s",(us,))
                 mysql.connection.commit()
                 r=cur.fetchall()
                 if len(r)==0:
@@ -129,12 +130,12 @@ def lin():
             oot=k
             session['otp']=oot
             cur=mysql.connection.cursor()
-            cur.execute("select * from user where unam like %s",(us,))
+            cur.execute("select * from user where us like %s",(us,))
             mysql.connection.commit()
             r=cur.fetchall()
             if  len(r)!=0:
-                o=r[0]['Number']
-                na=r[0]['Name']
+                o=r[0]['no']
+                na=r[0]['nam']
                 msg=f'OTP is {oot}'
                 url='https://www.fast2sms.com/dev/bulk'
                 para={'authorization':'Bpvi8RswfETPal7UeFS1hzXIHD0VqQYkobuNG4ZLCOAd932WnxwSbFxRr2jMau6cHGYCtUpNsfnW4Vok',
@@ -268,13 +269,13 @@ def p2():
         h=['Name','Number','Username']
         l1=[]
         for i in r:
-            l=[i['Name'],i['Number'],i['unam']]
+            l=[i['nam'],i['no'],i['us']]
             l1.append(l)
         if request.method=='POST':
             if request.form.get("dl"):
                 us = request.form['unam']
                 cur=mysql.connection.cursor()
-                cur.execute("delete from user where unam like %s",(us,))
+                cur.execute("delete from user where us like %s",(us,))
                 mysql.connection.commit()
                 flash(f"Successfully deleted user: {us}")
                 return redirect('/p2')
